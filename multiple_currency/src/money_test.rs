@@ -15,9 +15,26 @@ impl Dollar {
   }
 }
 
+#[derive(Debug, PartialEq)]
+struct Franc {
+  amount: u32
+}
+
+impl Franc {
+  pub fn new(amount: u32) -> Franc {
+    Franc { amount: amount }
+  }
+  pub fn times(&self, multiplier: u32) -> Franc {
+    Franc { amount: self.amount * multiplier }
+  }
+  pub fn equals(&self, obj: Franc) -> bool {
+    self.amount == obj.amount
+  }
+}
+
 #[cfg(test)]
 mod  tests {
-  use crate::money_test::Dollar;
+  use crate::money_test::{Dollar, Franc};
   #[test]
   fn test_multiplication() {
     let five = Dollar::new(5);
@@ -29,5 +46,12 @@ mod  tests {
   fn test_equality() {
     assert!(Dollar::new(5).equals(Dollar::new(5)));
     assert!(!Dollar::new(5).equals(Dollar::new(6)));
+  }
+
+  #[test]
+  fn test_franc_multiplication() {
+    let five = Franc::new(5);
+    assert_eq!(Franc::new(10), five.times(2));
+    assert_eq!(Franc::new(15), five.times(3));
   }
 }
