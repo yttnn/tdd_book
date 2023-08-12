@@ -13,6 +13,6 @@
 - [ ] DollarFrancの重複
 - [x] equalsの一般化
 - [x] timesの一般化
-- [ ] FrancとDollarを比較する
+- [ ] FrancとDollarを比較する(chapter07時点では実装のアイデア浮かばず,j後回し)
 
 - [ ] 諸関数がResultを返すようにする
