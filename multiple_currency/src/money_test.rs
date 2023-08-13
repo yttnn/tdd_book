@@ -1,54 +1,55 @@
 #[derive(Debug, PartialEq)]
 struct Money {
-  amount: u32
+  amount: u32,
+  currency: &'static str
 }
 
 impl Money {
   fn times(&self, multiplier: u32) -> Money {
-    Money { amount: self.amount * multiplier }
+    // Money { amount: self.amount * multiplier }
+    Money {
+      amount: self.amount * multiplier,
+      currency: self.currency
+    }
   }
   fn equals(&self, obj: Money) -> bool {
     self.amount == obj.amount
   }
   fn dollar(amount: u32) -> Money {
-    Money { amount: amount }
+    Money {
+      amount: amount,
+      currency: "USD"
+    }
   }
   fn franc(amount: u32) -> Money {
-    Money { amount: amount }
+    Money {
+      amount: amount,
+      currency: "CHF"
+    }
+  }
+  fn currency(&self) -> &str {
+    self.currency
   }
 }
 
-// 一応残しとく...
-// trait MoneyUtil {
-//   fn new(amount: u32) -> Money;
-// }
+trait MoneyUtil {
+  // fn new(amount: u32) -> Money;
+}
 
 
 #[derive(Debug, PartialEq)]
 struct Dollar {
 }
 
-// impl MoneyUtil for Dollar {
-//   fn new(amount: u32) -> Money {
-//     Money { amount: amount }
-//   }
-// }
 
 #[derive(Debug, PartialEq)]
 struct Franc {
 }
 
-// impl MoneyUtil for Franc {
-//   fn new(amount: u32) -> Money {
-//     Money { amount: amount }
-//   }
-// }
-
-// github actions test
 
 #[cfg(test)]
 mod  tests {
-  use crate::money_test::{Dollar, Franc, Money};
+  use crate::money_test::{Money};
   #[test]
   fn test_multiplication() {
     let five = Money::dollar(5);
@@ -70,5 +71,11 @@ mod  tests {
     let five = Money::franc(5);
     assert_eq!(Money::franc(10), five.times(2));
     assert_eq!(Money::franc(15), five.times(3));
+  }
+
+  #[test]
+  fn test_currency() {
+    assert_eq!("USD", Money::dollar(1).currency());
+    assert_eq!("CHF", Money::franc(1).currency());
   }
 }
