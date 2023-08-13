@@ -1,6 +1,13 @@
 name: rust
 
-on: pull_request
+on: 
+  pull_request:
+    paths:
+      - 'multiple_currency/**'
+
+defaults:
+  run:
+    working-directory: multiple_currency
 
 jobs:
   test:
