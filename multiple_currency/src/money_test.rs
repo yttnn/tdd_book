@@ -44,6 +44,8 @@ struct Franc {
 //   }
 // }
 
+// github actions test
+
 #[cfg(test)]
 mod  tests {
   use crate::money_test::{Dollar, Franc, Money};
