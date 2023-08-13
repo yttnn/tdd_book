@@ -13,7 +13,7 @@
 - [ ] DollarFrancの重複
 - [x] equalsの一般化
 - [x] timesの一般化
-- [ ] FrancとDollarを比較する(chapter07時点では実装のアイデア浮かばず,後回し)
+- [x] FrancとDollarを比較する(chapter09で通貨を導入したため、実装できた)
 - [x] 通貨の概念
 - [ ] test_franc_multiplication消す？
 

@@ -13,7 +13,7 @@ impl Money {
     }
   }
   fn equals(&self, obj: Money) -> bool {
-    self.amount == obj.amount
+    self.amount == obj.amount && self.currency == obj.currency
   }
   fn dollar(amount: u32) -> Money {
     Money {
@@ -63,7 +63,7 @@ mod  tests {
     assert!(!Money::dollar(5).equals(Money::dollar(6)));
     assert!(Money::franc(5).equals(Money::franc(5)));
     assert!(!Money::franc(5).equals(Money::franc(6)));
-    // assert!(!Franc::new(5).equals(Dollar::new(5)));
+    assert!(!Money::dollar(5).equals(Money::franc(5)));
   }
 
   #[test]
