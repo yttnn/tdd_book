@@ -10,11 +10,11 @@
 - [ ] nullとの等価性比較
 - [ ] 他のオブジェクトとの等価性比較
 - [x] 5 CHF * 2 = 10 CHF
-- [ ] DollarFrancの重複
+- [x] DollarFrancの重複
 - [x] equalsの一般化
 - [x] timesの一般化
 - [x] FrancとDollarを比較する(chapter09で通貨を導入したため、実装できた)
 - [x] 通貨の概念
-- [ ] test_franc_multiplication消す？
+- [x] test_franc_multiplication消す？
 
 - [ ] 諸関数がResultを返すようにする

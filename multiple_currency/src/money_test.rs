@@ -6,7 +6,6 @@ struct Money {
 
 impl Money {
   fn times(&self, multiplier: u32) -> Money {
-    // Money { amount: self.amount * multiplier }
     Money {
       amount: self.amount * multiplier,
       currency: self.currency
@@ -32,24 +31,11 @@ impl Money {
   }
 }
 
-trait MoneyUtil {
-  // fn new(amount: u32) -> Money;
-}
-
-
-#[derive(Debug, PartialEq)]
-struct Dollar {
-}
-
-
-#[derive(Debug, PartialEq)]
-struct Franc {
-}
 
 
 #[cfg(test)]
 mod  tests {
-  use crate::money_test::{Money};
+  use crate::money_test::Money;
   #[test]
   fn test_multiplication() {
     let five = Money::dollar(5);
@@ -61,16 +47,7 @@ mod  tests {
   fn test_equality() {
     assert!(Money::dollar(5).equals(Money::dollar(5)));
     assert!(!Money::dollar(5).equals(Money::dollar(6)));
-    assert!(Money::franc(5).equals(Money::franc(5)));
-    assert!(!Money::franc(5).equals(Money::franc(6)));
     assert!(!Money::dollar(5).equals(Money::franc(5)));
-  }
-
-  #[test]
-  fn test_franc_multiplication() {
-    let five = Money::franc(5);
-    assert_eq!(Money::franc(10), five.times(2));
-    assert_eq!(Money::franc(15), five.times(3));
   }
 
   #[test]
