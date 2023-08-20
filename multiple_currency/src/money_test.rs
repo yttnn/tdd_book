@@ -11,6 +11,14 @@ impl Money {
       currency: self.currency
     }
   }
+  fn plus(&self, addend: Money) -> Expression {
+    Expression::Money(
+      Money {
+        amount: self.amount + addend.amount,
+        currency: self.currency
+      }
+    )
+  }
   fn equals(&self, obj: Money) -> bool {
     self.amount == obj.amount && self.currency == obj.currency
   }
@@ -32,10 +40,24 @@ impl Money {
 }
 
 
+enum Expression {
+  Money(Money)
+}
+
+
+
+struct Bank {
+}
+
+impl Bank {
+  fn reduce(source: Expression, to: &str) -> Money {
+    Money::dollar(10)
+  }
+}
 
 #[cfg(test)]
 mod  tests {
-  use crate::money_test::Money;
+  use crate::money_test::{Money, Bank};
   #[test]
   fn test_multiplication() {
     let five = Money::dollar(5);
@@ -54,5 +76,13 @@ mod  tests {
   fn test_currency() {
     assert_eq!("USD", Money::dollar(1).currency());
     assert_eq!("CHF", Money::franc(1).currency());
+  }
+
+  #[test]
+  fn test_simple_addition() {
+    let five = Money::dollar(5);
+    let sum = five.plus(Money::dollar(5));
+    let bank = Bank{};
+    let reduced = Bank::reduce(sum, "USD");
   }
 }

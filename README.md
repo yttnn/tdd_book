@@ -7,3 +7,6 @@ https://shop.ohmsha.co.jp/shopdetail/000000004967/
   - 階層関係を解消するのが容易（そもそも階層関係を作っていない？？？）
   - まだちゃんと理解できていないかも
 - TDDおもしれぇ...(chapter11)
+- 書籍ではinterfaceを使って型の抽象化をしている(chapter12)
+  - Rustではtraitかenumをつかうことになりそう
+  - 今回はenumでとりあえず進めてみることにする
