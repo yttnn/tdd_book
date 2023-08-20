@@ -12,11 +12,8 @@ impl Money {
     }
   }
   fn plus(&self, addend: Money) -> Expression {
-    Expression::Money(
-      Money {
-        amount: self.amount + addend.amount,
-        currency: self.currency
-      }
+    Expression::Sum(
+      Sum { augend: Money { amount: self.amount, currency: self.currency }, addend: addend }
     )
   }
   fn equals(&self, obj: Money) -> bool {
@@ -121,6 +118,7 @@ use super::{Expression, Sum};
     let sum = five.plus(Money::dollar(5));
     let bank = Bank::new();
     let reduced = bank.reduce(sum, "USD");
+    assert_eq!(Money::dollar(10), reduced);
   }
 
   #[test]
