@@ -1,6 +1,8 @@
 # tdd_book
 https://shop.ohmsha.co.jp/shopdetail/000000004967/
 
+[![rust](https://github.com/yttnn/tdd_book/actions/workflows/rust.yml/badge.svg?event=pull_request)](https://github.com/yttnn/tdd_book/actions/workflows/rust.yml)
+
 # memo
 - すべてのものをコードとテスト両方の視点から捉えることによって欠陥を減らし、自信をもって前に進めるようにと考える(p27)
 - 継承より合成と言われている理由を感じることができた(chapter08)
